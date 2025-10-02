@@ -1,0 +1,97 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Capitec AI Financial Assistant</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #004A99;
+            color: white;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+
+        .chat-container {
+            max-width: 600px;
+            margin: 40px auto;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 2px 2px 15px rgba(0, 0, 0, 0.2);
+            color: black;
+        }
+
+        #chat-box {
+            min-height: 250px;
+            padding: 10px;
+            background: #E30613;
+            border-radius: 5px;
+            overflow-y: auto;
+            text-align: left;
+            color: white;
+        }
+
+        #user-input {
+            width: 75%;
+            padding: 12px;
+            margin-top: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        button {
+            padding: 12px 15px;
+            background-color: #E30613;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+
+            button:hover {
+                background-color: #990000;
+            }
+
+        .logo {
+            width: 150px;
+            margin: 20px auto;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <img src="capitec-logo.png" alt="Capitec Logo" class="logo">
+        <h1>Capitec AI Financial Assistant</h1>
+        <p>Ask me anything about your finances!</p>
+    </header>
+
+    <main>
+        <div class="chat-container">
+            <div id="chat-box"></div>
+            <input type="text" id="user-input" placeholder="Type your question here...">
+            <button onclick="sendMessage()">Send</button>
+        </div>
+    </main>
+
+    <script>
+        function sendMessage() {
+            let userInput = document.getElementById("user-input").value;
+            let chatBox = document.getElementById("chat-box");
+
+            if (userInput.trim() !== "") {
+                chatBox.innerHTML += `<p><strong>You:</strong> ${userInput}</p>`;
+
+                setTimeout(() => {
+                    chatBox.innerHTML += `<p><strong>Bot:</strong> Analyzing financial data...</p>`;
+                }, 1000);
+
+                document.getElementById("user-input").value = "";
+            }
+        }
+    </script>
+</body>
+</html>
+
